@@ -1,0 +1,19 @@
+mysql> create table gouwuche(
+    -> name varchar(20),
+    -> price float,
+    -> shoucang int(1));
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> insert into gouwuche(name,price,shoucang)values("nike",300,0);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> update gouwuche set shoucang=1 where price=300;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+mysql> select * from gouwuche;
++------+-------+----------+
+| name | price | shoucang |
++------+-------+----------+
+| nike |   300 |        1 |
++------+-------+----------+
+1 row in set (0.00 sec)
