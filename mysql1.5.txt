@@ -1,0 +1,68 @@
+mysql> create table movies(name varchar(20),type varchar(20),director varchar(20),grade float,year int(5));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> desc movies;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| name     | varchar(20) | YES  |     | NULL    |       |
+| type     | varchar(20) | YES  |     | NULL    |       |
+| director | varchar(20) | YES  |     | NULL    |       |
+| grade    | float       | YES  |     | NULL    |       |
+| year     | int(5)      | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into movies(name,type,director,grade,year)values
+    -> ("zhanlang","aiguo,dongzuo","wujing",8.7,2015),
+    -> ("huapi","guzhuang,xuanhuan","chenjiashang",8.6,2008),
+    -> ("juchisha","jingsong,keji","qiao",8.3,2018),
+    -> ("aiqinggongyu","xiju,aiqing","weizheng",7.7,2018);
+Query OK, 4 rows affected (0.02 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> desc movies;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| name     | varchar(20) | YES  |     | NULL    |       |
+| type     | varchar(20) | YES  |     | NULL    |       |
+| director | varchar(20) | YES  |     | NULL    |       |
+| grade    | float       | YES  |     | NULL    |       |
+| year     | int(5)      | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from movies where type like "%aiqing%";
++--------------+-------------+----------+-------+------+
+| name         | type        | director | grade | year |
++--------------+-------------+----------+-------+------+
+| aiqinggongyu | xiju,aiqing | weizheng |   7.7 | 2018 |
++--------------+-------------+----------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> select director from movies where type like "%dongzuo%";
++----------+
+| director |
++----------+
+| wujing   |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select * from movies where year=2018;
++--------------+---------------+----------+-------+------+
+| name         | type          | director | grade | year |
++--------------+---------------+----------+-------+------+
+| juchisha     | jingsong,keji | qiao     |   8.3 | 2018 |
+| aiqinggongyu | xiju,aiqing   | weizheng |   7.7 | 2018 |
++--------------+---------------+----------+-------+------+
+2 rows in set (0.00 sec)
+mysql> select max(grade) from movies;
++-------------------+
+| max(grade)        |
++-------------------+
+| 8.699999809265137 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql>
